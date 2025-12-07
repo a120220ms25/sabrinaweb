@@ -445,6 +445,102 @@ a {
     border-radius: 20px;
 }
 
+/* ===================================
+   Prompts Grid (提示詞頁面)
+   =================================== */
+.prompts-section {
+    margin-bottom: 48px;
+}
+
+.prompts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 24px;
+}
+
+.prompt-card {
+    background-color: var(--panel-color);
+    border-radius: var(--border-radius-lg);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border-color);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.prompt-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 0 var(--shadow-color), var(--shadow-lg);
+}
+
+.prompt-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.prompt-tag {
+    background-color: rgba(214, 147, 150, 0.15);
+    color: var(--accent-color);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+}
+
+.copy-btn {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-light);
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: var(--font-style);
+}
+
+.copy-btn:hover {
+    background-color: var(--bg-subtle);
+    color: var(--text-dark);
+    border-color: var(--text-muted);
+}
+
+.copy-btn.copied {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
+
+.prompt-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+}
+
+.prompt-desc {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+.prompt-content {
+    background-color: var(--bg-subtle);
+    padding: 16px;
+    border-radius: var(--border-radius);
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    line-height: 1.6;
+    border: 1px dashed var(--border-color);
+    margin-top: auto;
+    font-family: monospace;
+    white-space: pre-wrap;
+}
+
 .course-btn {
     display: inline-block;
     background-color: var(--accent-color);
