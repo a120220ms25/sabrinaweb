@@ -564,10 +564,9 @@ a {
 }
 
 .prompts-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    /* 縮小最小寬度，確保能並排 */
-    gap: 32px;
+    column-count: 2;
+    /* 電腦版兩欄 */
+    column-gap: 32px;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -582,15 +581,17 @@ a {
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-lg);
     display: flex;
-    flex-direction: row;
-    /* 改為橫向排列 */
+    flex-direction: column;
+    /* 改回直向排列 */
     box-shadow: var(--shadow-card);
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     z-index: 1;
     overflow: hidden;
-    min-height: 250px;
-    /* 大幅縮小最小高度 */
+    break-inside: avoid;
+    /* 防止卡片被切斷 */
+    margin-bottom: 32px;
+    /* 卡片垂直間距 */
 }
 
 .prompt-card:hover {
@@ -611,15 +612,13 @@ a {
 
 /* 卡片內容區 */
 .card-body {
-    width: 70%;
-    /* 調整內容區佔比 */
+    width: 100%;
+    /* 寬度填滿 */
     padding: 24px;
     display: flex;
     flex-direction: column;
     gap: 12px;
     background-color: var(--panel-color);
-    justify-content: flex-start;
-    /* 內容向上對齊 */
     position: relative;
     z-index: 2;
 }
@@ -658,30 +657,27 @@ a {
     margin: 0;
 }
 
-/* 預覽圖區塊 (左側) */
+/* 預覽圖區塊 */
 .prompt-preview {
-    width: 30%;
-    /* 調整圖片佔比 */
-    background-color: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-right: 1px solid var(--border-color);
+    width: 100%;
+    /* 寬度填滿 */
+    height: auto;
+    /* 高度自動 */
+    display: block;
+    border-bottom: 1px solid var(--border-color);
+    border-right: none;
     margin: 0;
     border-radius: 0;
-    border: none;
     overflow: hidden;
     position: relative;
-    flex-shrink: 0;
-    /* 防止圖片被壓縮 */
 }
 
 .prompt-preview img {
     width: 100%;
-    height: 100%;
-    object-fit: contain;
-    /* 完整呈現，不裁切 */
+    height: auto;
+    /* 高度自動，保持比例 */
     display: block;
+    object-fit: cover;
 }
 
 .prompt-card:hover .prompt-preview img {
@@ -877,8 +873,18 @@ a {
 
 /* ===================================
    Responsive Design
-   =================================== */
+   ===================================*/
+/* 響應式：手機版 */
 @media (max-width: 768px) {
+    .prompts-grid {
+        column-count: 1;
+        /* 手機版一欄 */
+    }
+
+    .prompt-card {
+        margin-bottom: 24px;
+    }
+
     .hero-title {
         font-size: 2rem;
     }
