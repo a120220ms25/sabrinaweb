@@ -114,6 +114,15 @@
                                     </svg>
                                     <span>立刻嘗試</span>
                                 </button>
+                                <a href="#" target="_blank" class="action-btn btn-secondary">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                        <polyline points="15 3 21 3 21 9" />
+                                        <line x1="10" y1="14" x2="21" y2="3" />
+                                    </svg>
+                                    <span>原文</span>
+                                </a>
                                 <button class="action-btn btn-icon">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2">
@@ -259,6 +268,9 @@
                 span.innerText = '✅ 已複製！';
                 btn.style.backgroundColor = 'var(--accent-color)';
                 btn.style.borderColor = 'var(--accent-color)';
+
+                // 打開 Nano Banana 網頁 (聯盟連結佔位符)
+                window.open('https://nanobanana.com', '_blank');
 
                 setTimeout(() => {
                     span.innerText = originalText;

@@ -774,7 +774,8 @@ a {
     background-color: var(--accent-color);
     color: white;
     border-color: var(--accent-color);
-    flex-grow: 1;
+    flex-grow: 2;
+    /* 讓主要按鈕佔據更多空間 */
     box-shadow: 0 2px 4px rgba(214, 147, 150, 0.3);
 }
 
@@ -783,6 +784,19 @@ a {
     border-color: var(--accent-hover);
     transform: translateY(-1px);
     box-shadow: 0 4px 8px rgba(214, 147, 150, 0.4);
+}
+
+.btn-secondary {
+    background-color: white;
+    color: var(--text-light);
+    border-color: var(--border-color);
+    flex-grow: 1;
+}
+
+.btn-secondary:hover {
+    background-color: var(--bg-subtle);
+    color: var(--text-dark);
+    border-color: var(--text-dark);
 }
 
 .btn-icon {
