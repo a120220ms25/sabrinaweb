@@ -564,12 +564,12 @@ a {
 }
 
 .prompts-grid {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    /* 電腦版一排兩張 */
     gap: 32px;
-    /* 縮小間距 */
-    max-width: 900px;
-    /* 縮小最大寬度，與 Profile Card 一致 */
+    max-width: 1200px;
+    /* 放寬最大寬度以容納兩張卡片 */
     margin: 0 auto;
 }
 
@@ -612,15 +612,15 @@ a {
 
 /* 卡片內容區 */
 .card-body {
-    width: 65%;
-    /* 增加內容區佔比 */
-    padding: 28px;
-    /* 稍微減少內距 */
+    width: 60%;
+    /* 調整內容區佔比 */
+    padding: 24px;
     display: flex;
     flex-direction: column;
     gap: 12px;
-    /* 縮小元件間距 */
     background-color: var(--panel-color);
+    justify-content: flex-start;
+    /* 內容向上對齊 */
     position: relative;
     z-index: 2;
 }
@@ -661,10 +661,9 @@ a {
 
 /* 預覽圖區塊 (左側) */
 .prompt-preview {
-    width: 45%;
-    /* 左側佔比 */
+    width: 40%;
+    /* 調整圖片佔比 */
     background-color: #000;
-    /* 深色背景襯托圖片 */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -674,13 +673,17 @@ a {
     border: none;
     overflow: hidden;
     position: relative;
+    flex-shrink: 0;
+    /* 防止圖片被壓縮 */
 }
 
 .prompt-preview img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* 填滿區域 */
+    /* 填滿區域，不留白 */
+    display: block;
+    /* 消除圖片底部空隙 */
     transition: transform 0.5s ease;
 }
 
@@ -736,15 +739,17 @@ a {
 }
 
 .code-content {
-    padding: 16px;
+    padding: 12px;
     font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
-    font-size: 0.9rem;
-    line-height: 1.7;
+    font-size: 0.85rem;
+    line-height: 1.6;
     white-space: pre-wrap;
-    max-height: 150px;
+    max-height: 120px;
     overflow-y: auto;
     color: var(--text-dark);
     background-color: white;
+    text-align: left;
+    /* 強制靠左對齊 */
 }
 
 /* 底部按鈕區 */
