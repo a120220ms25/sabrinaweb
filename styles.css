@@ -1,0 +1,557 @@
+/* ===================================
+   V16 簡約品牌色風格 - CSS Variables
+   =================================== */
+:root {
+    --bg-canvas: #E8E4E1;
+    --bg-subtle: #F5F3F1;
+    --panel-color: #FFFFFF;
+    --text-dark: #2D2926;
+    --accent-color: #D69396;
+    --accent-hover: #C88488;
+    --accent-light: rgba(214, 147, 150, 0.12);
+    --shadow-color: #B07C7F;
+    --font-style: 'Inter', sans-serif;
+    --border-radius: 8px;
+    --border-radius-lg: 12px;
+
+    /* 額外輔助色 */
+    --text-light: #5A5652;
+    --text-muted: #8A8580;
+    --border-color: #D4D0CC;
+
+    /* 增強陰影 */
+    --shadow-sm: 0 2px 4px rgba(45, 41, 38, 0.06);
+    --shadow-md: 0 4px 12px rgba(45, 41, 38, 0.08);
+    --shadow-lg: 0 8px 24px rgba(45, 41, 38, 0.12);
+    --shadow-card: 0 6px 0 var(--shadow-color);
+}
+
+/* ===================================
+   Reset & Base Styles
+   =================================== */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-style);
+    background-color: var(--bg-canvas);
+    color: var(--text-dark);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease;
+}
+
+/* ===================================
+   Layout
+   =================================== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.main {
+    min-height: calc(100vh - 180px);
+    padding-bottom: 60px;
+}
+
+/* ===================================
+   Header
+   =================================== */
+.header {
+    background-color: var(--panel-color);
+    padding: 18px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-md);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.logo-icon {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+}
+
+.logo-icon-img {
+    width: 28px;
+    height: 28px;
+}
+
+.nav {
+    display: flex;
+    gap: 8px;
+}
+
+.nav-link {
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+    background-color: rgba(214, 147, 150, 0.1);
+    color: var(--accent-color);
+}
+
+.nav-link.active {
+    background-color: var(--accent-color);
+    color: white;
+    box-shadow: 0 4px 0 var(--shadow-color);
+}
+
+.nav-link.active:hover {
+    transform: translateY(-1px);
+    background-color: var(--accent-hover);
+}
+
+/* ===================================
+   Hero Section
+   =================================== */
+.hero {
+    padding: 60px 0 40px;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+    color: var(--text-dark);
+    letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+    font-size: 1.125rem;
+    color: var(--text-light);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* ===================================
+   Section Styles
+   =================================== */
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: var(--text-dark);
+}
+
+.section-desc {
+    color: var(--text-light);
+    margin-bottom: 32px;
+    font-size: 1rem;
+}
+
+.tools-section,
+.works-section,
+.courses-section {
+    margin-bottom: 48px;
+}
+
+/* ===================================
+   Tools Grid (AI 工具頁面)
+   =================================== */
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    margin-bottom: 48px;
+}
+
+.tool-card {
+    background-color: var(--panel-color);
+    border-radius: var(--border-radius-lg);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border-color);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tool-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 0 var(--shadow-color), var(--shadow-lg);
+}
+
+.tool-card:active {
+    transform: translateY(4px);
+    box-shadow: 0 0 0 var(--shadow-color);
+}
+
+.tool-icon {
+    width: 48px;
+    height: 48px;
+    background-color: rgba(214, 147, 150, 0.15);
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    color: var(--accent-color);
+}
+
+.tool-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.tool-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.tool-company {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+
+.tool-desc {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.tool-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background-color: var(--accent-color);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+/* ===================================
+   Works Grid (作品頁面)
+   =================================== */
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.work-card {
+    background-color: var(--panel-color);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border-color);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.work-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 0 var(--shadow-color), var(--shadow-lg);
+}
+
+.work-card:active {
+    transform: translateY(4px);
+    box-shadow: 0 0 0 var(--shadow-color);
+}
+
+.work-preview {
+    background: linear-gradient(145deg, var(--accent-color), var(--accent-hover));
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.work-preview::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2), transparent 60%);
+}
+
+.work-emoji {
+    font-size: 4rem;
+}
+
+.work-content {
+    padding: 24px;
+}
+
+.work-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.work-desc {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+.work-tags {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.work-tag {
+    background-color: rgba(214, 147, 150, 0.15);
+    color: var(--accent-color);
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 20px;
+}
+
+.work-cta {
+    color: var(--accent-color);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+/* Coming Soon Card */
+.coming-soon-card {
+    background-color: var(--panel-color);
+    border-radius: var(--border-radius-lg);
+    padding: 56px;
+    text-align: center;
+    border: 2px dashed var(--accent-color);
+    opacity: 0.85;
+}
+
+.coming-soon-icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+}
+
+.coming-soon-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+}
+
+.coming-soon-card p {
+    color: var(--text-muted);
+}
+
+/* ===================================
+   Courses Grid (課程區塊)
+   =================================== */
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.course-card {
+    background-color: var(--panel-color);
+    border-radius: var(--border-radius-lg);
+    padding: 32px;
+    text-align: center;
+    position: relative;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border-color);
+}
+
+.course-badge {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--accent-color);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 6px 16px;
+    border-radius: 20px;
+}
+
+.course-icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+    margin-top: 8px;
+}
+
+.course-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.course-desc {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+.course-info {
+    margin-bottom: 20px;
+}
+
+.course-platform {
+    background-color: rgba(214, 147, 150, 0.15);
+    color: var(--accent-color);
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 20px;
+}
+
+.course-btn {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: white;
+    font-weight: 500;
+    padding: 12px 32px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 0 var(--shadow-color);
+    transition: all 0.2s ease;
+}
+
+.course-btn:hover {
+    transform: translateY(-1px);
+    background-color: var(--accent-hover);
+}
+
+.course-btn:active {
+    transform: translateY(3px);
+    box-shadow: 0 0 0 var(--shadow-color);
+}
+
+.course-note {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 12px;
+    font-style: italic;
+}
+
+/* Affiliate Notice */
+.affiliate-notice {
+    background-color: var(--panel-color);
+    border-radius: var(--border-radius);
+    padding: 20px 24px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.affiliate-notice p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* ===================================
+   Footer
+   =================================== */
+.footer {
+    background-color: var(--panel-color);
+    padding: 24px 0;
+    text-align: center;
+    margin-top: auto;
+}
+
+.footer p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* ===================================
+   Responsive Design
+   =================================== */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .works-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .courses-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-link {
+        padding: 8px 14px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header .container {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .hero {
+        padding: 40px 0 30px;
+    }
+
+    .hero-title {
+        font-size: 1.75rem;
+    }
+
+    .section-title {
+        font-size: 1.25rem;
+    }
+
+    .tool-card,
+    .course-card {
+        padding: 20px;
+    }
+}
