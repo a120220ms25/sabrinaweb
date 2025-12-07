@@ -564,9 +564,9 @@ a {
 }
 
 .prompts-grid {
-    column-count: 2;
-    /* 電腦版兩欄 */
-    column-gap: 32px;
+    column-count: 3;
+    /* 電腦版改為三欄，讓圖片變小 */
+    column-gap: 24px;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -874,7 +874,14 @@ a {
 /* ===================================
    Responsive Design
    ===================================*/
-/* 響應式：手機版 */
+/* 響應式：平板與手機 */
+@media (max-width: 1024px) {
+    .prompts-grid {
+        column-count: 2;
+        /* 平板兩欄 */
+    }
+}
+
 @media (max-width: 768px) {
     .prompts-grid {
         column-count: 1;
