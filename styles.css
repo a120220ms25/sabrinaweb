@@ -682,9 +682,6 @@ a {
     object-fit: contain;
     /* 完整呈現，不裁切 */
     display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
 }
 
 .prompt-card:hover .prompt-preview img {
