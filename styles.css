@@ -162,29 +162,40 @@ a {
 /* ===================================
    Profile Section (首頁個人簡介)
    =================================== */
+/* ===================================
+   Profile Section (首頁個人簡介)
+   =================================== */
 .profile-section {
     padding: 60px 0 40px;
 }
 
 .profile-card {
     background-color: var(--panel-color);
-    border: 3px solid var(--text-dark);
+    border: 1px solid var(--border-color);
     border-radius: var(--border-radius-lg);
-    padding: 40px;
+    padding: 48px;
     display: flex;
     align-items: center;
-    gap: 40px;
-    box-shadow: 8px 8px 0 var(--text-dark);
+    gap: 48px;
+    box-shadow: var(--shadow-lg);
     max-width: 900px;
     margin: 0 auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--accent-color-alpha);
 }
 
 .profile-avatar {
-    width: 120px;
-    height: 120px;
-    background-color: var(--bg-subtle);
+    width: 140px;
+    height: 140px;
+    background: linear-gradient(135deg, #fff0f1 0%, #ffe4e6 100%);
     border-radius: 50%;
-    border: 3px solid var(--text-dark);
+    border: 4px solid #fff;
+    box-shadow: var(--shadow-md);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -192,7 +203,7 @@ a {
 }
 
 .avatar-emoji {
-    font-size: 4rem;
+    font-size: 4.5rem;
 }
 
 .profile-content {
@@ -202,15 +213,16 @@ a {
 .profile-name {
     font-size: 2.5rem;
     font-weight: 800;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
     color: var(--text-dark);
+    letter-spacing: -0.02em;
 }
 
 .profile-bio {
     font-size: 1.1rem;
     color: var(--text-light);
-    line-height: 1.6;
-    margin-bottom: 24px;
+    line-height: 1.7;
+    margin-bottom: 32px;
 }
 
 .social-links {
@@ -222,19 +234,22 @@ a {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 8px 16px;
-    border: 2px solid var(--text-dark);
-    border-radius: 24px;
+    padding: 10px 20px;
+    background-color: var(--bg-canvas);
+    border: 1px solid var(--border-color);
+    border-radius: 100px;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    color: var(--text-light);
     transition: all 0.2s ease;
 }
 
 .social-link:hover {
-    background-color: var(--text-dark);
+    background-color: var(--accent-color);
     color: white;
+    border-color: var(--accent-color);
     transform: translateY(-2px);
-    box-shadow: 4px 4px 0 var(--accent-color);
+    box-shadow: var(--shadow-md);
 }
 
 @media (max-width: 768px) {
@@ -537,88 +552,59 @@ a {
 }
 
 /* ===================================
-   Prompts Grid (提示詞頁面 - 精修版)
+   Prompts Grid (提示詞頁面 - 橫向版)
    =================================== */
 .prompts-section {
-    margin-bottom: 48px;
+    margin-bottom: 60px;
     padding-top: 20px;
-    /* 預留空間給凸出的標籤 */
 }
 
 .prompts-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 40px;
-    /* 增加間距 */
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .prompt-card-container {
-    position: relative;
-    padding-top: 40px;
-    /* 預留標籤高度 */
+    /* 移除之前的容器樣式 */
+    padding-top: 0;
 }
 
 .prompt-card {
     background-color: var(--panel-color);
-    border: 3px solid var(--text-dark);
-    border-radius: 0;
-    /* 直角或微圓角 */
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
     display: flex;
-    flex-direction: column;
-    box-shadow: 8px 8px 0 var(--text-dark);
-    transition: all 0.2s ease;
+    flex-direction: row;
+    /* 改為橫向排列 */
+    box-shadow: var(--shadow-card);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     z-index: 1;
+    overflow: hidden;
+    min-height: 400px;
+    /* 確保有足夠高度 */
 }
 
 .prompt-card:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 10px 10px 0 var(--text-dark);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--accent-color-alpha);
 }
 
-/* 凸出式標籤欄 */
-.card-tabs {
-    display: flex;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
-}
-
+/* 移除標籤相關樣式 */
+.card-tabs,
 .card-tab {
-    padding: 8px 24px;
-    font-weight: 700;
-    font-size: 0.9rem;
-    border: 3px solid var(--text-dark);
-    border-bottom: none;
-    /* 與卡片融合 */
-    background-color: var(--panel-color);
-    margin-right: -3px;
-    /* 邊框重疊 */
-    position: relative;
-    cursor: pointer;
-}
-
-.card-tab.active {
-    background-color: var(--panel-color);
-    z-index: 3;
-    padding-bottom: 12px;
-    /* 蓋住卡片上邊框 */
-    margin-bottom: -3px;
-}
-
-.card-tab.inactive {
-    background-color: #E5E5E5;
-    color: var(--text-light);
-    z-index: 1;
-    top: 4px;
-    /* 稍微下沉 */
-    padding-bottom: 8px;
+    display: none;
 }
 
 /* 卡片內容區 */
 .card-body {
-    padding: 24px;
+    width: 55%;
+    /* 右側佔比 */
+    padding: 32px;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -634,26 +620,22 @@ a {
     align-items: center;
     font-size: 0.85rem;
     color: var(--text-light);
-    margin-bottom: 8px;
-    border-bottom: 1px solid #E5E5E5;
+    margin-bottom: 4px;
+    border-bottom: 1px solid var(--border-color);
     padding-bottom: 12px;
 }
 
 .author-info {
-    font-weight: 700;
-    color: var(--text-dark);
+    font-weight: 500;
+    color: var(--text-muted);
 }
 
 .author-name {
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 4px;
-}
-
-.post-date {
-    font-family: monospace;
-    color: var(--text-muted);
-    font-weight: 600;
+    color: var(--text-dark);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: none;
+    /* 移除底線 */
 }
 
 /* 標題 */
@@ -665,113 +647,147 @@ a {
     margin: 0;
 }
 
-/* 預覽圖區塊 */
+/* 預覽圖區塊 (左側) */
 .prompt-preview {
-    border: 3px solid var(--text-dark);
-    overflow: hidden;
-    aspect-ratio: 16/9;
-    background-color: var(--bg-subtle);
+    width: 45%;
+    /* 左側佔比 */
+    background-color: #000;
+    /* 深色背景襯托圖片 */
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 8px 0;
+    border-right: 1px solid var(--border-color);
+    margin: 0;
+    border-radius: 0;
+    border: none;
+    overflow: hidden;
+    position: relative;
+}
+
+.prompt-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* 填滿區域 */
+    transition: transform 0.5s ease;
+}
+
+.prompt-card:hover .prompt-preview img {
+    transform: scale(1.05);
 }
 
 .preview-placeholder {
-    font-size: 3rem;
-    opacity: 0.5;
+    font-size: 5rem;
+    opacity: 0.8;
+    filter: none;
 }
 
 /* 說明文字 */
 .prompt-desc {
-    font-size: 0.95rem;
-    color: var(--text-dark);
+    font-size: 1rem;
+    color: var(--text-light);
     line-height: 1.6;
     margin: 0;
+    flex-grow: 1;
+    /* 讓說明文字佔據剩餘空間 */
 }
 
 /* 提示詞代碼區塊 */
 .code-block {
-    border: 3px solid var(--text-dark);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
     overflow: hidden;
-    margin-top: 8px;
-    background-color: white;
+    margin-top: auto;
+    /* 推到底部 */
+    background-color: var(--bg-canvas);
 }
 
 .code-header {
-    background-color: var(--text-dark);
-    color: white;
-    padding: 8px 12px;
+    background-color: #f8f9fa;
+    color: var(--text-light);
+    padding: 10px 16px;
     font-size: 0.8rem;
-    font-weight: 700;
+    font-weight: 600;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .lang-tag {
     background-color: white;
-    color: var(--text-dark);
+    color: var(--text-muted);
     padding: 2px 8px;
-    border-radius: 2px;
-    font-size: 0.7rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    border: 1px solid var(--border-color);
 }
 
 .code-content {
     padding: 16px;
-    font-family: monospace;
+    font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
     font-size: 0.9rem;
-    line-height: 1.6;
+    line-height: 1.7;
     white-space: pre-wrap;
     max-height: 150px;
     overflow-y: auto;
     color: var(--text-dark);
+    background-color: white;
 }
 
 /* 底部按鈕區 */
 .card-actions {
     display: flex;
     gap: 12px;
-    margin-top: 16px;
+    margin-top: 12px;
 }
 
 .action-btn {
-    border: 3px solid var(--text-dark);
-    padding: 12px;
-    font-weight: 700;
+    border: 1px solid var(--border-color);
+    padding: 10px 20px;
+    font-weight: 600;
     cursor: pointer;
-    transition: all 0.1s;
+    transition: all 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
     background-color: white;
-    color: var(--text-dark);
-    border-radius: 0;
-    /* 直角 */
+    color: var(--text-light);
+    border-radius: var(--border-radius);
+    font-size: 0.9rem;
 }
 
 .btn-primary {
-    background-color: var(--text-dark);
+    background-color: var(--accent-color);
     color: white;
+    border-color: var(--accent-color);
     flex-grow: 1;
+    box-shadow: 0 2px 4px rgba(214, 147, 150, 0.3);
 }
 
 .btn-primary:hover {
-    background-color: #000;
+    background-color: var(--accent-hover);
+    border-color: var(--accent-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(214, 147, 150, 0.4);
 }
 
 .btn-icon {
-    width: 48px;
+    width: 42px;
     flex-shrink: 0;
+    color: var(--text-muted);
 }
 
 .btn-icon:hover {
-    background-color: #F0F0F0;
+    background-color: var(--bg-subtle);
+    color: var(--accent-color);
+    border-color: var(--accent-color-alpha);
 }
 
 .action-btn:active {
-    transform: translate(2px, 2px);
+    transform: translateY(1px);
+    box-shadow: none;
 }
 
 .course-btn {
