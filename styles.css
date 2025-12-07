@@ -589,7 +589,7 @@ a {
     position: relative;
     z-index: 1;
     overflow: hidden;
-    min-height: 280px;
+    min-height: 250px;
     /* 大幅縮小最小高度 */
 }
 
@@ -611,7 +611,7 @@ a {
 
 /* 卡片內容區 */
 .card-body {
-    width: 60%;
+    width: 70%;
     /* 調整內容區佔比 */
     padding: 24px;
     display: flex;
@@ -660,7 +660,7 @@ a {
 
 /* 預覽圖區塊 (左側) */
 .prompt-preview {
-    width: 40%;
+    width: 30%;
     /* 調整圖片佔比 */
     background-color: #000;
     display: flex;
