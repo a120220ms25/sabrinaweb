@@ -566,8 +566,10 @@ a {
 .prompts-grid {
     display: flex;
     flex-direction: column;
-    gap: 40px;
-    max-width: 1000px;
+    gap: 32px;
+    /* 縮小間距 */
+    max-width: 900px;
+    /* 縮小最大寬度，與 Profile Card 一致 */
     margin: 0 auto;
 }
 
@@ -588,8 +590,8 @@ a {
     position: relative;
     z-index: 1;
     overflow: hidden;
-    min-height: 400px;
-    /* 確保有足夠高度 */
+    min-height: 280px;
+    /* 大幅縮小最小高度 */
 }
 
 .prompt-card:hover {
@@ -610,12 +612,14 @@ a {
 
 /* 卡片內容區 */
 .card-body {
-    width: 55%;
-    /* 右側佔比 */
-    padding: 32px;
+    width: 65%;
+    /* 增加內容區佔比 */
+    padding: 28px;
+    /* 稍微減少內距 */
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
+    /* 縮小元件間距 */
     background-color: var(--panel-color);
     position: relative;
     z-index: 2;
