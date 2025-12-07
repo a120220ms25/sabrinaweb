@@ -177,16 +177,20 @@ a {
     display: flex;
     align-items: center;
     gap: 48px;
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-card);
     max-width: 900px;
     margin: 0 auto;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .profile-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-xl);
-    border-color: var(--accent-color-alpha);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 0 var(--shadow-color), var(--shadow-lg);
+}
+
+.profile-card:active {
+    transform: translateY(4px);
+    box-shadow: 0 0 0 var(--shadow-color);
 }
 
 .profile-avatar {
@@ -580,7 +584,7 @@ a {
     flex-direction: row;
     /* 改為橫向排列 */
     box-shadow: var(--shadow-card);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     z-index: 1;
     overflow: hidden;
@@ -589,9 +593,13 @@ a {
 }
 
 .prompt-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-xl);
-    border-color: var(--accent-color-alpha);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 0 var(--shadow-color), var(--shadow-lg);
+}
+
+.prompt-card:active {
+    transform: translateY(4px);
+    box-shadow: 0 0 0 var(--shadow-color);
 }
 
 /* 移除標籤相關樣式 */
