@@ -160,6 +160,97 @@ a {
 }
 
 /* ===================================
+   Profile Section (首頁個人簡介)
+   =================================== */
+.profile-section {
+    padding: 60px 0 40px;
+}
+
+.profile-card {
+    background-color: var(--panel-color);
+    border: 3px solid var(--text-dark);
+    border-radius: var(--border-radius-lg);
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    box-shadow: 8px 8px 0 var(--text-dark);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    background-color: var(--bg-subtle);
+    border-radius: 50%;
+    border: 3px solid var(--text-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.avatar-emoji {
+    font-size: 4rem;
+}
+
+.profile-content {
+    flex-grow: 1;
+}
+
+.profile-name {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    color: var(--text-dark);
+}
+
+.profile-bio {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.social-links {
+    display: flex;
+    gap: 16px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: 2px solid var(--text-dark);
+    border-radius: 24px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.social-link:hover {
+    background-color: var(--text-dark);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 0 var(--accent-color);
+}
+
+@media (max-width: 768px) {
+    .profile-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 32px 24px;
+        gap: 24px;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}
+
+/* ===================================
    Section Styles
    =================================== */
 .section-title {
@@ -446,28 +537,38 @@ a {
 }
 
 /* ===================================
-   Prompts Grid (提示詞頁面 - 新設計)
+   Prompts Grid (提示詞頁面 - 精修版)
    =================================== */
 .prompts-section {
     margin-bottom: 48px;
+    padding-top: 20px;
+    /* 預留空間給凸出的標籤 */
 }
 
 .prompts-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 32px;
+    gap: 40px;
+    /* 增加間距 */
+}
+
+.prompt-card-container {
+    position: relative;
+    padding-top: 40px;
+    /* 預留標籤高度 */
 }
 
 .prompt-card {
     background-color: var(--panel-color);
     border: 3px solid var(--text-dark);
-    border-radius: var(--border-radius);
+    border-radius: 0;
+    /* 直角或微圓角 */
     display: flex;
     flex-direction: column;
     box-shadow: 8px 8px 0 var(--text-dark);
     transition: all 0.2s ease;
-    overflow: hidden;
     position: relative;
+    z-index: 1;
 }
 
 .prompt-card:hover {
@@ -475,39 +576,44 @@ a {
     box-shadow: 10px 10px 0 var(--text-dark);
 }
 
-.prompt-card:active {
-    transform: translate(4px, 4px);
-    box-shadow: 4px 4px 0 var(--text-dark);
-}
-
-/* 頂部標籤欄 */
+/* 凸出式標籤欄 */
 .card-tabs {
     display: flex;
-    border-bottom: 3px solid var(--text-dark);
-    background-color: var(--bg-canvas);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
 }
 
 .card-tab {
-    padding: 12px 24px;
+    padding: 8px 24px;
     font-weight: 700;
     font-size: 0.9rem;
-    border-right: 3px solid var(--text-dark);
+    border: 3px solid var(--text-dark);
+    border-bottom: none;
+    /* 與卡片融合 */
     background-color: var(--panel-color);
+    margin-right: -3px;
+    /* 邊框重疊 */
     position: relative;
+    cursor: pointer;
 }
 
 .card-tab.active {
     background-color: var(--panel-color);
+    z-index: 3;
+    padding-bottom: 12px;
+    /* 蓋住卡片上邊框 */
+    margin-bottom: -3px;
 }
 
 .card-tab.inactive {
-    background-color: transparent;
+    background-color: #E5E5E5;
     color: var(--text-light);
-    cursor: pointer;
-}
-
-.card-tab.inactive:hover {
-    background-color: rgba(0, 0, 0, 0.05);
+    z-index: 1;
+    top: 4px;
+    /* 稍微下沉 */
+    padding-bottom: 8px;
 }
 
 /* 卡片內容區 */
@@ -516,6 +622,9 @@ a {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    background-color: var(--panel-color);
+    position: relative;
+    z-index: 2;
 }
 
 /* 作者資訊 */
@@ -523,17 +632,28 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 0.8rem;
-    font-weight: 600;
+    font-size: 0.85rem;
     color: var(--text-light);
     margin-bottom: 8px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    border-bottom: 1px solid #E5E5E5;
+    padding-bottom: 12px;
+}
+
+.author-info {
+    font-weight: 700;
+    color: var(--text-dark);
 }
 
 .author-name {
-    color: var(--text-dark);
-    font-weight: 800;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+}
+
+.post-date {
+    font-family: monospace;
+    color: var(--text-muted);
+    font-weight: 600;
 }
 
 /* 標題 */
@@ -548,7 +668,6 @@ a {
 /* 預覽圖區塊 */
 .prompt-preview {
     border: 3px solid var(--text-dark);
-    border-radius: var(--border-radius);
     overflow: hidden;
     aspect-ratio: 16/9;
     background-color: var(--bg-subtle);
@@ -574,15 +693,15 @@ a {
 /* 提示詞代碼區塊 */
 .code-block {
     border: 3px solid var(--text-dark);
-    border-radius: var(--border-radius);
     overflow: hidden;
     margin-top: 8px;
+    background-color: white;
 }
 
 .code-header {
     background-color: var(--text-dark);
     color: white;
-    padding: 8px 16px;
+    padding: 8px 12px;
     font-size: 0.8rem;
     font-weight: 700;
     display: flex;
@@ -590,8 +709,15 @@ a {
     align-items: center;
 }
 
+.lang-tag {
+    background-color: white;
+    color: var(--text-dark);
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-size: 0.7rem;
+}
+
 .code-content {
-    background-color: var(--bg-subtle);
     padding: 16px;
     font-family: monospace;
     font-size: 0.9rem;
@@ -599,18 +725,18 @@ a {
     white-space: pre-wrap;
     max-height: 150px;
     overflow-y: auto;
+    color: var(--text-dark);
 }
 
 /* 底部按鈕區 */
 .card-actions {
     display: flex;
     gap: 12px;
-    margin-top: 8px;
+    margin-top: 16px;
 }
 
 .action-btn {
     border: 3px solid var(--text-dark);
-    border-radius: var(--border-radius);
     padding: 12px;
     font-weight: 700;
     cursor: pointer;
@@ -619,6 +745,10 @@ a {
     align-items: center;
     justify-content: center;
     gap: 8px;
+    background-color: white;
+    color: var(--text-dark);
+    border-radius: 0;
+    /* 直角 */
 }
 
 .btn-primary {
@@ -632,13 +762,12 @@ a {
 }
 
 .btn-icon {
-    background-color: var(--panel-color);
     width: 48px;
-    color: var(--text-dark);
+    flex-shrink: 0;
 }
 
 .btn-icon:hover {
-    background-color: var(--bg-subtle);
+    background-color: #F0F0F0;
 }
 
 .action-btn:active {
