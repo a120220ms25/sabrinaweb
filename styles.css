@@ -951,3 +951,14 @@ a {
     height: 100%;
     object-fit: cover;
 }
+
+.work-tools {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
