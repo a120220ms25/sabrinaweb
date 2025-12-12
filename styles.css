@@ -83,13 +83,13 @@ a {
 }
 
 .header .container {
-    display: flex;
+    display: inline-block; width: 100%;
     justify-content: space-between;
     align-items: center;
 }
 
 .logo {
-    display: flex;
+    display: inline-block; width: 100%;
     align-items: center;
     gap: 8px;
     font-weight: 600;
@@ -107,7 +107,7 @@ a {
 }
 
 .nav {
-    display: flex;
+    display: inline-block; width: 100%;
     gap: 8px;
 }
 
@@ -174,7 +174,7 @@ a {
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-lg);
     padding: 48px;
-    display: flex;
+    display: inline-block; width: 100%;
     align-items: center;
     gap: 48px;
     box-shadow: var(--shadow-card);
@@ -200,7 +200,7 @@ a {
     border-radius: 50%;
     border: 4px solid #fff;
     box-shadow: var(--shadow-md);
-    display: flex;
+    display: inline-block; width: 100%;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
@@ -230,12 +230,12 @@ a {
 }
 
 .social-links {
-    display: flex;
+    display: inline-block; width: 100%;
     gap: 16px;
 }
 
 .social-link {
-    display: flex;
+    display: inline-block; width: 100%;
     align-items: center;
     gap: 8px;
     padding: 10px 20px;
@@ -258,7 +258,7 @@ a {
 
 @media (max-width: 768px) {
     .profile-card {
-        flex-direction: column;
+        
         text-align: center;
         padding: 32px 24px;
         gap: 24px;
@@ -305,8 +305,8 @@ a {
     background-color: var(--panel-color);
     border-radius: var(--border-radius-lg);
     padding: 28px;
-    display: flex;
-    flex-direction: column;
+    display: inline-block; width: 100%;
+    
     position: relative;
     box-shadow: var(--shadow-card);
     border: 1px solid var(--border-color);
@@ -328,7 +328,7 @@ a {
     height: 48px;
     background-color: rgba(214, 147, 150, 0.15);
     border-radius: var(--border-radius);
-    display: flex;
+    display: inline-block; width: 100%;
     align-items: center;
     justify-content: center;
     margin-bottom: 16px;
@@ -385,8 +385,8 @@ a {
     background-color: var(--panel-color);
     border-radius: var(--border-radius-lg);
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
+    display: inline-block; width: 100%;
+    
     box-shadow: var(--shadow-card);
     border: 1px solid var(--border-color);
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -405,7 +405,7 @@ a {
 .work-preview {
     background: linear-gradient(145deg, var(--accent-color), var(--accent-hover));
     height: 180px;
-    display: flex;
+    display: inline-block; width: 100%;
     align-items: center;
     justify-content: center;
     position: relative;
@@ -444,7 +444,7 @@ a {
 }
 
 .work-tags {
-    display: flex;
+    display: inline-block; width: 100%;
     gap: 8px;
     margin-bottom: 16px;
     flex-wrap: wrap;
@@ -564,9 +564,9 @@ a {
 }
 
 .prompts-grid {
-    column-count: 2;
+    column-count: 3;
     /* 電腦版改回兩欄，適合橫式圖片 */
-    column-gap: 32px;
+    column-gap: 24px;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -580,8 +580,8 @@ a {
     background-color: var(--panel-color);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-lg);
-    display: flex;
-    flex-direction: column;
+    display: inline-block; width: 100%;
+    
     /* 改回直向排列 */
     box-shadow: var(--shadow-card);
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -615,8 +615,8 @@ a {
     width: 100%;
     /* 寬度填滿 */
     padding: 24px;
-    display: flex;
-    flex-direction: column;
+    display: inline-block; width: 100%;
+    
     gap: 12px;
     background-color: var(--panel-color);
     position: relative;
@@ -625,7 +625,7 @@ a {
 
 /* 作者資訊 */
 .card-meta {
-    display: flex;
+    display: inline-block; width: 100%;
     justify-content: space-between;
     align-items: center;
     font-size: 0.85rem;
@@ -716,7 +716,7 @@ a {
     padding: 10px 16px;
     font-size: 0.8rem;
     font-weight: 600;
-    display: flex;
+    display: inline-block; width: 100%;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--border-color);
@@ -747,7 +747,7 @@ a {
 
 /* 底部按鈕區 */
 .card-actions {
-    display: flex;
+    display: inline-block; width: 100%;
     gap: 12px;
     margin-top: 12px;
 }
@@ -758,7 +758,7 @@ a {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s ease;
-    display: flex;
+    display: inline-block; width: 100%;
     align-items: center;
     justify-content: center;
     gap: 8px;
@@ -877,7 +877,7 @@ a {
 /* 響應式：平板與手機 */
 @media (max-width: 1024px) {
     .prompts-grid {
-        column-count: 2;
+        column-count: 3;
         /* 平板兩欄 */
     }
 }
@@ -920,7 +920,7 @@ a {
 
 @media (max-width: 480px) {
     .header .container {
-        flex-direction: column;
+        
         gap: 16px;
     }
 
@@ -940,4 +940,14 @@ a {
     .course-card {
         padding: 20px;
     }
+}
+/* Added for profile image support */
+.profile-avatar {
+    overflow: hidden;
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
